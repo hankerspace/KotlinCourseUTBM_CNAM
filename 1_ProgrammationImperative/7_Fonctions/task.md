@@ -51,6 +51,36 @@ La fonction `factorial` appelle la fonction `factorial` avec un paramètre `n` q
 
 La fonction `factorial` s'arrête quand le paramètre `n` est égal à `0`.
 
+## Paramètres nommés
+
+Les paramètres nommés permettent de spécifier le nom du paramètre lors de l'appel de la fonction. Cela permet de rendre le code plus lisible.
+
+```kotlin
+fun printFullName(firstName: String, lastName: String) {
+    println("$firstName $lastName")
+}
+
+printFullName("John", "Doe")
+printFullName(lastName = "Doe", firstName = "John")
+```
+
+Dans l'exemple ci-dessus, les deux appels de la fonction `printFullName` sont équivalents.
+
+## Paramètres par défaut
+
+Les paramètres par défaut permettent de spécifier une valeur par défaut pour un paramètre. Cela permet de rendre le code plus lisible.
+
+```kotlin
+fun printFullName(firstName: String, lastName: String = "Doe") {
+    println("$firstName $lastName")
+}
+
+printFullName("John")
+printFullName("John", "Doe")
+```
+
+Dans l'exemple ci-dessus, les deux appels de la fonction `printFullName` sont équivalents.
+
 ## Documentation
 
 La documentation d'une fonction est très importante. Elle permet de comprendre ce que fait la fonction et comment l'utiliser.

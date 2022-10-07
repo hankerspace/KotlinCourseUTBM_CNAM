@@ -16,6 +16,11 @@ class Personne(
     }
 }
 
+fun createPersonne(nom: String, prenom: String, age: Int): Any {
+    // Renvoie une personne avec le nom, le prénom et l'âge donnés en paramètre.
+    return Personne(nom, prenom, age)
+}
+
 fun createPersonnesAndTestNomComplet(): List<String> {
     val personnes = mutableListOf<Personne>()
     personnes.add(Personne("Doe", "John", 42))

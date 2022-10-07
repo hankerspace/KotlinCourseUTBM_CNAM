@@ -122,7 +122,7 @@ class Personne {
         println("Personne")
     }
 
-    public val nomComplet: String
+    public val nomComplet: String // public inutile car implicite
         get() = "$nom $prenom"
 }
 ```
