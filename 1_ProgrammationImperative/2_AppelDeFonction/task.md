@@ -1,4 +1,7 @@
 # Cours
+
+Les fonctions sont des blocs de code qui peuvent être appelés à plusieurs endroits dans un programme. Elles peuvent prendre des paramètres et retourner des valeurs.
+
 Les fonctions peuvent être écrites sous différentes formes en Kotlin.
 
 ### Fonctions simples

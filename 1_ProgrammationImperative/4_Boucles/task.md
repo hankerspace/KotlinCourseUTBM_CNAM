@@ -52,7 +52,7 @@ do {
 
 Utilisez les boucles précédentes pour compléter les exercices suivants.
 
-Pour rappel, des notions sur les variables ont été données au [cours 1_Bonjour](course://Introduction au Kotlin/1_Bonjour/task.md)
+Pour rappel, des notions sur les variables ont été données au [cours 1_Bonjour](course://1_ProgrammationImperative/1_Bonjour/task.md)
 
 <div class="hint">
   Une variable peut être utilisée pour stocker le résultat de la boucle. La variable doit alors être déclarée avant la boucle.
