@@ -34,6 +34,9 @@ val b = 1
 
 Les types que nous utiliseront le plus souvent sont `Int`, `Double`, et `String`.
 
+### Portée
+
+La portée d'une variable est la zone du programme où elle est accessible. Une variable déclarée dans une fonction n'est accessible que dans cette fonction. Une variable déclarée dans une classe est accessible dans la classe et dans les classes qui en héritent.
 
 # Exercice
 
