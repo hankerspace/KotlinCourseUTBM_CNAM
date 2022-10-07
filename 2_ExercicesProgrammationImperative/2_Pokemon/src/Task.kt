@@ -1,26 +1,3 @@
-fun generateRandomSentence(): String {
-    val pokemons = pokemonNames.toMutableList()
-
-    var sentence = ""
-    var possible = true
-    do {
-        val possiblePokemons =
-            if (sentence == "")
-                pokemons.filter { it.startsWith("A") }
-            else
-                pokemons.filter { it.startsWith(sentence.last().uppercase()) }
-        if (possiblePokemons.isEmpty()) {
-            possible = false
-        } else {
-            val pokemon = possiblePokemons.random()
-            sentence += if (sentence == "") pokemon else " $pokemon"
-            pokemons.remove(pokemon)
-        }
-    } while (pokemons.size > 1 && possible)
-
-    return sentence
-}
-
 fun getLongestSentence(): String {
     // Combine all pokemon names where the previous name ends with the same letter as the next name starts with
     // The first pokemon must start with the letter A
@@ -28,18 +5,37 @@ fun getLongestSentence(): String {
     // Try to generate a sentence with all pokemon names 100 times
     // Return the longest sentence
 
+    val generateRandomSentence = fun(): String {
+        val pokemons = pokemonNames.toMutableList()
+
+        var sentence = ""
+        var possible = true
+        do {
+            val possiblePokemons =
+                if (sentence == "")
+                    pokemons.filter { it.startsWith("A") }
+                else
+                    pokemons.filter { it.startsWith(sentence.last().uppercase()) }
+            if (possiblePokemons.isEmpty()) {
+                possible = false
+            } else {
+                val pokemon = possiblePokemons.random()
+                sentence += if (sentence == "") pokemon else " $pokemon"
+                pokemons.remove(pokemon)
+            }
+        } while (pokemons.size > 1 && possible)
+
+        return sentence
+    }
+
     var longestSentence = ""
-    for (i in 1..1000) {
+    for (i in 1..100) {
         val sentence = generateRandomSentence()
         if (sentence.length > longestSentence.length) {
             longestSentence = sentence
         }
     }
     return longestSentence
-}
-
-fun main(args: Array<String>) {
-    println(getLongestSentence())
 }
 
 val pokemonNames = listOf(
