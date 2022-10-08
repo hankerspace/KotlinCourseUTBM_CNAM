@@ -1,7 +1,8 @@
 type: marketplace
-title: UTC503 Kotlin
+title: Kotlin UTBM/CNAM
 language: French
-summary: Cours d'introduction au KOTLIN destiné à l'UE UTC503
+summary: Cours d'introduction au KOTLIN destiné aux étudiants de l'UTBM et du CNAM
+  BFC
 vendor:
   name: Thomas Martinet
 programming_language: Kotlin
@@ -9,3 +10,4 @@ content:
 - 1_ProgrammationImperative
 - 2_ExercicesProgrammationImperative
 - 3_ProgrammationOrienteeObjet
+- 4_ExercicesProgrammationOrienteeObjet

@@ -1,0 +1,19 @@
+type: edu
+files:
+- name: src/Task.kt
+  visible: true
+  placeholders:
+  - offset: 2692
+    length: 73
+    placeholder_text: TODO()
+  - offset: 306
+    length: 2090
+    placeholder_text: TODO()
+- name: test/Tests.kt
+  visible: false
+- name: src/GameOfLife.kt
+  visible: false
+- name: img.png
+  visible: true
+- name: img_1.png
+  visible: true
