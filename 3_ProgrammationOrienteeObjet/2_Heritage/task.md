@@ -137,6 +137,28 @@ fun main() {
 }
 ```
 
+### Protected
+
+Les membres d'une classe peuvent être déclarés `protected`. Un membre `protected` est accessible dans la classe et dans les classes filles. Par contre il ne sera pas visible en dehors (autres classes, etc).
+
+```kotlin
+open class Animal {
+    protected fun manger() {
+        println("Je mange")
+    }
+}
+
+class Chat : Animal() {
+    fun miauler() {
+        println("Miaou")
+    }
+
+    override fun manger() {
+        println("Je mange du poisson")
+    }
+}
+```
+
 # Exercice
 
 Suivez les instructions pour mener a bien l'exercice.
