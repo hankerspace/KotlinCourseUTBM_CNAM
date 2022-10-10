@@ -4,3 +4,7 @@ content:
 - 2_Factory
 - 3_AbstractFactory
 - 4_Decorator
+- 5_State
+- 6_Bridge
+- 7_Template
+- 8_Memento
