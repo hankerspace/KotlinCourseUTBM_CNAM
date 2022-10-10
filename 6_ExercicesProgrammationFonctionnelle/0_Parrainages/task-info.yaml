@@ -2,6 +2,19 @@ type: edu
 files:
 - name: src/Task.kt
   visible: true
+  placeholders:
+  - offset: 1505
+    length: 542
+    placeholder_text: TODO()
+  - offset: 2116
+    length: 337
+    placeholder_text: TODO()
+  - offset: 2519
+    length: 480
+    placeholder_text: TODO()
+  - offset: 705
+    length: 723
+    placeholder_text: TODO()
 - name: test/Tests.kt
   visible: false
 - name: parrainagestotal.json
