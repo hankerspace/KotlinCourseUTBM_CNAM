@@ -10,11 +10,15 @@ var name: String? = null
 
 ## Test de nullité
 
-Pour tester si une variable est nulle, on utilise l'opérateur `==` ou `!=` avec `null` comme valeur de comparaison.
+Pour tester si une variable est nulle, on utilise l'opérateur `===` ou `!==` avec `null` comme valeur de comparaison. La comparaison `==` et `!=` est aussi possible mais est moins performante.
+
+<div class="hint">
+Le test `a == b` est équivalent à `a?.equals(b) ?: (b === null)`
+</div>
 
 ```kotlin
 var name: String? = null
-if (name == null) {
+if (name === null) {
     println("name is null")
 } else {
     println("name is not null")

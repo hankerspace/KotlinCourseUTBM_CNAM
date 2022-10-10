@@ -12,9 +12,9 @@ Cette première partie est dédiée à la programmation impérative. Nous allons
 
 La programmation impérative est un paradigme de programmation qui consiste à décrire les étapes d'un algorithme. C'est le paradigme le plus utilisé dans les langages de programmation. Il est basé sur l'utilisation de variables, de fonctions et d'instructions.
 
-Il est le plus simple a apprendre et a utiliser. Il est utilisé dans la plupart des langages de programmation.
+Il est le plus simple à apprendre et à utiliser. Il est utilisé dans la plupart des langages de programmation.
 
-Son pripal atout est sa simplicité d'utilisation. Il est facile de comprendre et de lire un code écrit en programmation impérative. En effet, chaque instruction est exécutée une par une, dans l'ordre dans lequel elles sont écrites.
+Son principal atout est sa simplicité d'utilisation. Il est facile de comprendre et de lire un code écrit en programmation impérative. En effet, chaque instruction est exécutée une par une, dans l'ordre dans lequel elles sont écrites.
 
 Le programmeur peut facilement comprendre le fonctionnement d'un programme écrit en programmation impérative. Il suffit de lire le code de haut en bas, et d'exécuter chaque instruction.
 

@@ -50,6 +50,14 @@ Les opérateurs de comparaison sont les mêmes que ceux que vous avez déjà uti
 | \>=       | supérieur ou égal |
 | <=        | inférieur ou égal |
 
+Il existe également des opérateurs référentiels qui permettent de comparer les références de deux objets.
+
+| Opérateur | Signification |
+|-----------|---------------|
+| ===       | égal          |
+| !==       | différent     |
+
+
 ### Opérateurs logiques
 
 Les opérateurs logiques sont les mêmes que ceux que vous avez déjà utilisés en Java.
@@ -67,6 +75,7 @@ val a = 1
 val b = 2
 val max = if (a > b) a else b
 ```
+
 
 
 # Exercice

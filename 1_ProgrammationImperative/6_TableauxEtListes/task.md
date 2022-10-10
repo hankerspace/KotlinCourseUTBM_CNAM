@@ -151,8 +151,6 @@ Les listes et les tableaux sont des types de données qui permettent de stocker 
 
 La principale différence entre les deux est que les listes sont immuables, c'est-à-dire qu'elles ne peuvent pas être modifiées. Les tableaux sont mutables, c'est-à-dire qu'ils peuvent être modifiés.
 
-Lors de l'utilisation de mutablesList, Kotlin se charge de créer une nouvelle liste à chaque modification. Cela peut avoir un impact sur les performances.
-
 Du point de vue d'un programmeur, une liste mutable est facile à utiliser, mais les performances sont moindres que pour un tableau.
 
 Toutefois, les listes sont des types de données possédant de nombreuses méthodes qui permettent de les manipuler facilement.

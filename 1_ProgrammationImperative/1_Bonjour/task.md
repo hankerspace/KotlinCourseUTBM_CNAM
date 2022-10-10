@@ -11,7 +11,7 @@ val b = 1
 b = 2 // Erreur
 ```
 
-Une variable peut avoir un type explicite ou implicite. Si le type est explicite, il est défini après le nom de la variable. Si le type est implicite, il est déduit du type de la valeur de la variable.
+Une variable peut avoir un type explicite ou inféré (implicite). Si le type est explicite, il est défini après le nom de la variable. Si le type est inféré, il est déduit du type de la valeur de la variable.
 
 ```kotlin
 val a: Int = 1
@@ -20,17 +20,17 @@ val b = 1
 
 ### Rappel sur les types de variables
 
-| Type | Description |
-| --- | --- |
-| `Boolean` | Valeur booléenne |
-| `Byte` | Entier signé sur 8 bits |
-| `Short` | Entier signé sur 16 bits |
-| `Int` | Entier signé sur 32 bits |
-| `Long` | Entier signé sur 64 bits |
-| `Float` | Nombre à virgule flottante sur 32 bits |
-| `Double` | Nombre à virgule flottante sur 64 bits |
-| `Char` | Caractère Unicode |
-| `String` | Chaîne de caractères |
+| Type      | Description                            |
+|-----------|----------------------------------------|
+| `Boolean` | Valeur booléenne                       |
+| `Byte`    | Entier signé sur 8 bits                |
+| `Short`   | Entier signé sur 16 bits               |
+| `Int`     | Entier signé sur 32 bits               |
+| `Long`    | Entier signé sur 64 bits               |
+| `Float`   | Nombre à virgule flottante sur 32 bits |
+| `Double`  | Nombre à virgule flottante sur 64 bits |
+| `Char`    | Caractère Unicode                      |
+| `String`  | Chaîne de caractères                   |
 
 Les types que nous utiliseront le plus souvent sont `Int`, `Double`, et `String`.
 
