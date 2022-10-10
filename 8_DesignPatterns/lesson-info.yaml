@@ -1,3 +1,5 @@
 content:
 - 0_DesignPatterns
 - 1_ChainOfResponsibility
+- 2_Factory
+- 3_AbstractFactory
