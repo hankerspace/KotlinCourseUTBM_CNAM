@@ -3,3 +3,4 @@ content:
 - 1_ChainOfResponsibility
 - 2_Factory
 - 3_AbstractFactory
+- 4_Decorator
