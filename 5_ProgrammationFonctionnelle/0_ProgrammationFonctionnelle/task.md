@@ -14,9 +14,9 @@ Les principales caractéristiques d'un langage de programmation fonctionnel sont
 * Les fonctions peuvent être passées en paramètre
 * Les fonctions peuvent être retournées par une autre fonction
 * Les fonctions peuvent être déclarées dans une fonction
-* Fonctions de premier ordre
 * Fonctions anonymes
 * Fonctions lambda
+* Fonctions récursives
 * Etc.
 
 # Création de fonctions
