@@ -20,3 +20,24 @@ fun main(args: Array<String>) {
 }
 ```
 
+## Surcharge d'opérateurs
+
+La surcharge d'opérateurs permet de définir des opérateurs pour des types existants. 
+
+L'extension de fonction peut être utilisée pour définir des opérateurs. Il faut ajouter le mot clé `operator` devant la définition. Par exemple, pour définir l'opérateur `+` pour les chaînes de caractères, on peut écrire :
+
+```kotlin
+operator fun String.plus(other: String): String = this + other
+```
+
+Cette fonction ajoute une méthode `plus()` à la classe `String`. Cette méthode retourne la concaténation des deux chaînes de caractères.
+
+### Exemple
+
+```kotlin
+fun main() {
+    val s = "Hello"
+    println(s.lastChar())
+    println(s + " world")
+}
+```
