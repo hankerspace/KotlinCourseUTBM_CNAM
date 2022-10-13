@@ -26,6 +26,27 @@ Dans la programmation impérative, chaque variable est stockée dans un registre
 
 Il est très facile de comprendre comment évolue la mémoire après chaque instruction. Pour les programmes plus complexes, on peut utiliser un débugger pour voir l'évolution de la mémoire. Le débugger permet de voir l'état de la mémoire à chaque instruction et peut interrompre l'exécution du programme à tout moment.
 
+## Scopes
+
+Un scope est une zone de code. Il est délimité par des accolades. Les variables déclarées dans un scope ne sont accessibles que dans ce scope.
+
+```kotlin
+fun main(args: Array<String>) {
+    val a = 2
+    val b = 3
+    if (a > b) {
+        val c = 4
+        println(c)
+    } else {
+        val c = 5
+        println(c)
+    }
+    println(c)
+}
+```
+
+Dans cet exemple, la variable `c` est déclarée dans deux scopes différents. Elle est donc accessible dans ces deux scopes, mais pas en dehors.
+
 ## Exemple
 
 Dans l'exemple. Vous allez voir la valeur de la variable a évoluer au fur et à mesure de l'exécution du programme.
