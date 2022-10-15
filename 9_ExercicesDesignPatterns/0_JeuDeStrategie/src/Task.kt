@@ -49,7 +49,7 @@ abstract class Unit(var pos: Point) : Attackable {
 }
 
 abstract class Building(pos: Point) : Unit(pos), Factoryable {
-    abstract fun createUnit(): Unit
+    protected abstract fun createUnit(): Unit
     override fun buildUnit() : Unit {
         val unit = createUnit()
         unitLifeObserver.onUnitCreated(unit)
@@ -104,51 +104,56 @@ abstract class Mage(pos: Point, var mana: Int) : Character(pos) {
 
 class Player(val faction: Faction, val defaultPos: Point) {
     val units = mutableListOf<Unit>()
+
+    val isPlayerAlive : Boolean
+        get() = units.isNotEmpty()
 }
 
 
 object Game : UnitLifeObserver {
 
+    var turn = 0
     val players = mutableListOf<Player>()
 
     fun addPlayer(player: Player) {
+        // Check if player with the same faction already exists
+        if(players.any { it.faction == player.faction }) {
+            throw Exception("Player with the same faction already exists")
+        }
+        // Create the four buildings using BuildingFactory
+        val barracks = BuildingFactory.createBarracks(player.defaultPos, player.faction)
+        val forge = BuildingFactory.createForge(player.defaultPos, player.faction)
+        val altar = BuildingFactory.createAltar(player.defaultPos, player.faction)
+        val mageTower = BuildingFactory.createMageTower(player.defaultPos, player.faction)
+        // Add the buildings to the player's units
+        player.units.addAll(listOf(barracks, forge, altar, mageTower))
         players.add(player)
     }
 
     fun onPlayerTurn(player: Player) {
         println("-- Tour du joueur ${player.faction} --")
+        // List units
+        println("Liste des unités :")
+        player.units.forEachIndexed { index, unit ->
+            println("${index + 1} - ${unit.javaClass.simpleName} (${unit.hp} HP) en ${unit.pos}")
+        }
         println("-- Quelle action souhaitez-vous effectuer ? --")
         println("1. Créer une unité")
         println("2. Déplacer une unité")
         println("3. Attaquer une unité")
         println("4. Passer son tour")
+
         val action = readLine()!!.toInt()
         when(action) {
             1 -> {
-                println("Quelle unité souhaitez-vous créer ?")
-                println("1. Caserne")
-                println("2. Forge")
-                println("3. Autel des héros")
-                println("4. Tour des mages")
-                val unitType = readLine()!!.toInt()
-                val unit = when(unitType) {
-                    1 -> {
-                       BuildingFactory.createBarracks(player.defaultPos, player.faction)
-                    }
-                    2 -> {
-                        BuildingFactory.createForge(player.defaultPos, player.faction)
-                    }
-                    3 -> {
-                        BuildingFactory.createAltar(player.defaultPos, player.faction)
-                    }
-                    4 -> {
-                        BuildingFactory.createMageTower(player.defaultPos, player.faction)
-                    }
-                    else -> {
-                        throw Exception("Invalid unit type")
-                    }
+                println("Quelle bâtiment souhaitez-vous utiliser ?")
+                player.units.filterIsInstance<Building>().forEachIndexed { index, building ->
+                    println("${index + 1}. ${building.javaClass.simpleName}")
                 }
-                player.units.add(unit)
+                val buildingIndex = readLine()!!.toInt() - 1
+                val building = player.units.filterIsInstance<Building>()[buildingIndex]
+                val unit = building.buildUnit()
+                println("Unité créée : ${unit.javaClass.simpleName} (${unit.hp} HP) en ${unit.pos}")
             }
             2 -> {
                 println("Quelle unité souhaitez-vous déplacer ?")
@@ -163,6 +168,7 @@ object Game : UnitLifeObserver {
                 println("y = ")
                 val y = readLine()!!.toInt()
                 unit.move(Point(x, y))
+                println("Unité ${unit.javaClass.simpleName} déplacée en ($x, $y)")
             }
             3 -> {
                 println("Quelle unité souhaitez-vous faire attaquer ?")
@@ -171,6 +177,14 @@ object Game : UnitLifeObserver {
                 }
                 val unitIndex = readLine()!!.toInt()
                 val unit = player.units.filterIsInstance<Character>()[unitIndex-1]
+                println("Quelle unité souhaitez-vous attaquer ?")
+                for((i, target) in players.filter { it.faction != player.faction }.map { unit }.withIndex()) {
+                    println("${i+1}. ${target.javaClass.simpleName} (${target.pos.x}, ${target.pos.y})")
+                }
+                val targetIndex = readLine()!!.toInt()
+                val target = players.filter { it.faction != player.faction }.map { unit }[targetIndex-1]
+                unit.attack(target)
+                println("Unité ${unit.javaClass.simpleName} attaque ${target.javaClass.simpleName} en (${target.pos.x}, ${target.pos.y}) avec ${unit.damage} dégâts. Nouvelle vie : ${target.hp}")
             }
             4 -> {
                 println("Tour passé")
@@ -187,19 +201,38 @@ object Game : UnitLifeObserver {
         for(player in players) {
             if(player.units.contains(unit)) {
                 player.units.remove(unit)
-                break
+                return
             }
         }
     }
     override fun onUnitCreated(unit: Unit) {
-    //TODO
+        // Add unit to the player units list
+        // Find the player with same faction
+        for(player in players) {
+            if(player.faction == unit.faction) {
+                player.units.add(unit)
+                return
+            }
+        }
+    }
+
+    fun playTurn() {
+        turn++
+        println("Début du tour $turn")
+        for(player in players) {
+            onPlayerTurn(player)
+        }
+        println("Fin du tour $turn")
+    }
+
+    fun isGameOver() : Boolean {
+        return players.count { it.isPlayerAlive } <= 1
+    }
+
+    fun getWinner() : Player? {
+        return players.firstOrNull { it.isPlayerAlive }
     }
 }
-
-fun main() {
-
-}
-
 
 /**
  * Units database
@@ -421,8 +454,15 @@ class ElfMage(pos: Point) : Mage(pos, 80) {
     override val range: Int = 12
 }
 
-
-
-
-
+fun main() {
+    Game.addPlayer(Player(Faction.HUMANS, Point(0, 0)))
+    Game.addPlayer(Player(Faction.ORCS, Point(10, 10)))
+    while(!Game.isGameOver()) {
+        Game.playTurn()
+    }
+    val winner = Game.getWinner()
+    if (winner != null) {
+        println("Le joueur ${winner.faction} a gagné !")
+    }
+}
 

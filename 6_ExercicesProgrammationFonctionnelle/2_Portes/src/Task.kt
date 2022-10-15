@@ -13,6 +13,13 @@ fun doors(n: Int) : List<Int> {
 }
 
 fun main() {
+    println(doors(1))
+    println(doors(2))
+    println(doors(3))
+    println(doors(4))
+    println(doors(5))
+    println(doors(6))
+    println(doors(7))
     println(doors(100))
     println(doors(1000))
 }
