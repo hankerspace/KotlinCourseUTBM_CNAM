@@ -1,10 +1,10 @@
 type: edu
 files:
-- name: src/Task.kt
-  visible: true
 - name: test/Tests.kt
   visible: false
+- name: src/TowersOfHanoi.kt
+  visible: true
 - name: src/MainComponent.kt
   visible: true
-- name: src/TowersOfHanoi.kt
+- name: src/Task.kt
   visible: true

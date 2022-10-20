@@ -1,5 +1,13 @@
 type: edu
 files:
+- name: test/Tests.kt
+  visible: false
+- name: img.png
+  visible: true
+- name: img_1.png
+  visible: true
+- name: img_2.png
+  visible: true
 - name: src/Task.kt
   visible: true
   placeholders:
@@ -21,11 +29,3 @@ files:
   - offset: 10187
     length: 1104
     placeholder_text: TODO()
-- name: test/Tests.kt
-  visible: false
-- name: img.png
-  visible: true
-- name: img_1.png
-  visible: true
-- name: img_2.png
-  visible: true

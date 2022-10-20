@@ -1,7 +1,10 @@
 type: marketplace
 title: Kotlin UTBM/CNAM
 language: French
-summary: Introduction course to Kotlin and programming paradigms in French. A first part is dedicated to the imperative paradigm, the second part to the object-oriented paradigm and the third part to the functional paradigm. An extra part is dedicated to the design patterns. Every part is followed by exercices to practice.
+summary: Introduction course to Kotlin and programming paradigms in French. A first
+  part is dedicated to the imperative paradigm, the second part to the object-oriented
+  paradigm and the third part to the functional paradigm. An extra part is dedicated
+  to the design patterns. Every part is followed by exercices to practice.
 vendor:
   name: Thomas Martinet
 programming_language: Kotlin
